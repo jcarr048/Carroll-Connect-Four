@@ -116,3 +116,76 @@ const column6 = [
 ]
 
 const columns = [column0, column1, column2, column3, column4, column5, column6]
+
+let options = [
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
+]
+let currentPlayer = 'Red'
+let running = false
+
+newGameStart()
+
+function newGameStart() {
+  cells.forEach((cell) => cell.addEventListener('cellDone', cellFinished))
+  newGameBtn.addEventListener('click', newGameStart)
+  playerStatus.textContent = `${currentPlayer}'s turn`
+  running = true
+}
+
+function cellFinished() {
+  const cellIndex = this.getAttribute('cellIndex')
+  if (options[cellIndex] != '' || !running) {
+    return
+  }
+  cellChange(this, cellIndex)
+  checkWin()
+}
+
+function cellChange() {}
+
+function otherPlayer() {}
+
+function checkWin() {}
+
+function restartGame() {}

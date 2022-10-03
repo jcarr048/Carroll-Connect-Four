@@ -1,4 +1,16 @@
-.cell {
+.gameTable {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    background-color: blue;
+    width: 900px;
+    height: 800px;
+    margin: auto;
+    border: 8px solid navy;
+    border-bottom: 8px solid yellow;
+    justify-content: center;
+}
+
+.gameTable div {
     height: 95px;
     width: 105px;
     background-color: white;
@@ -9,14 +21,17 @@
     cursor: pointer;
 }
 
-#cellGrid {
-    display: grid;
-    grid-template-columns: repeat(7, auto);
-    background-color: blue;
-    width: 900px;
-    height: 800px;
-    margin: auto;
-    border: 8px solid navy;
-    border-bottom: 8px solid yellow;
-    justify-content: center;
+.player-one {
+    background-color: red;
+    border-radius: 70px;
+}
+
+.player-two {
+    background-color: yellow;
+    border-radius: 70px;
+}
+
+#playerStatus {
+    color: black;
+    font: 14px;
 }

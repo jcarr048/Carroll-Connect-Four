@@ -1,4 +1,4 @@
-const cells = document.querySelectorAll('.cell')
+const cells = document.querySelectorAll('.gameTable')
 const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
 
@@ -118,43 +118,3 @@ let options = [
   '',
   ''
 ]
-let currentPlayer = 'Red'
-let running = false
-
-newGameStart()
-
-function newGameStart() {
-  cells.forEach((cell) => cell.addEventListener('cellDone', cellFinished))
-  newGameBtn.addEventListener('click', newGameStart)
-  playerStatus.textContent = `${currentPlayer}'s turn`
-  running = true
-}
-
-function cellFinished() {
-  const cellIndex = this.getAttribute('cellIndex')
-  if (options[cellIndex] != '' || !running) {
-    return
-  }
-  cellChange(this, cellIndex)
-  checkWin()
-}
-
-function cellChange(cell, index) {
-  options[index] = currentPlayer
-  cell.textContent = currentPlayer
-}
-
-function otherPlayer() {
-  currentPlayer = currentPlayer == 'Red' ? 'Black' : 'Red'
-  playerStatus.textContent = `${currentPlayer}'s turn`
-}
-
-function checkWin() {
-  let roundOver = false
-  for (let i = 0; i < winningOptions.length; i++) {
-    let winner = winningOptions[i]
-    if 
-  }
-}
-
-function restartGame() {}

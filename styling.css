@@ -1,0 +1,16 @@
+.cell {
+    height: 120px;
+    width: 150px;
+    border: 1px solid blue;
+    box-shadow: 0 0 0 2px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+#cellGrid {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    width: 130px;
+    margin: auto;
+    justify-content: center;
+}

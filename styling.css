@@ -1,12 +1,11 @@
 .cell {
-    height: 90px;
-    width: 100px;
-    border: 8px solid navy;
+    height: 95px;
+    width: 105px;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 0 2px;
     line-height: 25px;
-    margin: auto;
+    margin: 10px;
     cursor: pointer;
 }
 
@@ -14,8 +13,10 @@
     display: grid;
     grid-template-columns: repeat(7, auto);
     background-color: blue;
-    width: 850px;
-    height: 750px;
+    width: 900px;
+    height: 800px;
     margin: auto;
+    border: 8px solid navy;
+    border-bottom: 8px solid yellow;
     justify-content: center;
 }

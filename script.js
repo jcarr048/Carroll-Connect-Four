@@ -2,120 +2,77 @@ const cells = document.querySelectorAll('.cell')
 const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
 
-const row0 = [
-  cellIndex[0],
-  cellIndex[1],
-  cellIndex[2],
-  cellIndex[3],
-  cellIndex[4],
-  cellIndex[5],
-  cellIndex[6]
+const winningOptions = [
+  [0, 1, 2, 3],
+  [41, 40, 39, 38],
+  [7, 8, 9, 10],
+  [34, 33, 32, 31],
+  [14, 15, 16, 17],
+  [27, 26, 25, 24],
+  [21, 22, 23, 24],
+  [20, 19, 18, 17],
+  [28, 29, 30, 31],
+  [13, 12, 11, 10],
+  [35, 36, 37, 38],
+  [6, 5, 4, 3],
+  [0, 7, 14, 21],
+  [41, 34, 27, 20],
+  [1, 8, 15, 22],
+  [40, 33, 26, 19],
+  [2, 9, 16, 23],
+  [39, 32, 25, 18],
+  [3, 10, 17, 24],
+  [38, 31, 24, 17],
+  [4, 11, 18, 25],
+  [37, 30, 23, 16],
+  [5, 12, 19, 26],
+  [36, 29, 22, 15],
+  [6, 13, 20, 27],
+  [35, 28, 21, 14],
+  [0, 8, 16, 24],
+  [41, 33, 25, 17],
+  [7, 15, 23, 31],
+  [34, 26, 18, 10],
+  [14, 22, 30, 38],
+  [27, 19, 11, 3],
+  [35, 29, 23, 17],
+  [6, 12, 18, 24],
+  [28, 22, 16, 10],
+  [13, 19, 25, 31],
+  [21, 15, 9, 3],
+  [20, 26, 32, 38],
+  [36, 30, 24, 18],
+  [5, 11, 17, 23],
+  [37, 31, 25, 19],
+  [4, 10, 16, 22],
+  [2, 10, 18, 26],
+  [39, 31, 23, 15],
+  [1, 9, 17, 25],
+  [40, 32, 24, 16],
+  [9, 7, 25, 33],
+  [8, 16, 24, 32],
+  [11, 7, 23, 29],
+  [12, 18, 24, 30],
+  [1, 2, 3, 4],
+  [5, 4, 3, 2],
+  [8, 9, 10, 11],
+  [12, 11, 10, 9],
+  [15, 16, 17, 18],
+  [19, 18, 17, 16],
+  [22, 23, 24, 25],
+  [26, 25, 24, 23],
+  [29, 30, 31, 32],
+  [33, 32, 31, 30],
+  [36, 37, 38, 39],
+  [40, 39, 38, 37],
+  [7, 14, 21, 28],
+  [8, 15, 22, 29],
+  [9, 16, 23, 30],
+  [10, 17, 24, 31],
+  [11, 18, 25, 32],
+  [12, 19, 26, 33],
+  [13, 20, 27, 34]
 ]
-const row1 = [
-  cellIndex[7],
-  cellIndex[8],
-  cellIndex[9],
-  cellIndex[10],
-  cellIndex[11],
-  cellIndex[12],
-  cellIndex[13]
-]
-const row2 = [
-  cellIndex[14],
-  cellIndex[15],
-  cellIndex[16],
-  cellIndex[17],
-  cellIndex[18],
-  cellIndex[19],
-  cellIndex[20]
-]
-const row3 = [
-  cellIndex[21],
-  cellIndex[22],
-  cellIndex[23],
-  cellIndex[24],
-  cellIndex[25],
-  cellIndex[26],
-  cellIndex[27]
-]
-const row4 = [
-  cellIndex[28],
-  cellIndex[29],
-  cellIndex[30],
-  cellIndex[31],
-  cellIndex[32],
-  cellIndex[33],
-  cellIndex[34]
-]
-const row5 = [
-  cellIndex[35],
-  cellIndex[36],
-  cellIndex[37],
-  cellIndex[38],
-  cellIndex[39],
-  cellIndex[40],
-  cellIndex[41]
-]
-const rows = [row0, row1, row2, row3, row4, row5]
-
-const column0 = [
-  cellIndex[0],
-  cellIndex[7],
-  cellIndex[14],
-  cellIndex[21],
-  cellIndex[28],
-  cellIndex[35]
-]
-const column1 = [
-  cellIndex[1],
-  cellIndex[8],
-  cellIndex[15],
-  cellIndex[22],
-  cellIndex[29],
-  cellIndex[36]
-]
-const column2 = [
-  cellIndex[2],
-  cellIndex[9],
-  cellIndex[16],
-  cellIndex[23],
-  cellIndex[30],
-  cellIndex[37]
-]
-const column3 = [
-  cellIndex[3],
-  cellIndex[10],
-  cellIndex[17],
-  cellIndex[24],
-  cellIndex[31],
-  cellIndex[38]
-]
-const column4 = [
-  cellIndex[4],
-  cellIndex[11],
-  cellIndex[18],
-  cellIndex[25],
-  cellIndex[32],
-  cellIndex[39]
-]
-const column5 = [
-  cellIndex[5],
-  cellIndex[12],
-  cellIndex[19],
-  cellIndex[26],
-  cellIndex[33],
-  cellIndex[40]
-]
-const column6 = [
-  cellIndex[6],
-  cellIndex[13],
-  cellIndex[20],
-  cellIndex[27],
-  cellIndex[34],
-  cellIndex[41]
-]
-
-const columns = [column0, column1, column2, column3, column4, column5, column6]
 
 let options = [
   '',
@@ -182,10 +139,22 @@ function cellFinished() {
   checkWin()
 }
 
-function cellChange() {}
+function cellChange(cell, index) {
+  options[index] = currentPlayer
+  cell.textContent = currentPlayer
+}
 
-function otherPlayer() {}
+function otherPlayer() {
+  currentPlayer = currentPlayer == 'Red' ? 'Black' : 'Red'
+  playerStatus.textContent = `${currentPlayer}'s turn`
+}
 
-function checkWin() {}
+function checkWin() {
+  let roundOver = false
+  for (let i = 0; i < winningOptions.length; i++) {
+    let winner = winningOptions[i]
+    if 
+  }
+}
 
 function restartGame() {}

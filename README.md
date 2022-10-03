@@ -6,6 +6,8 @@
 
 ## **_Description_**
 
+[Trello Board](https://trello.com/b/JqhpRwgD/jeffs-project-board)
+
 In this game, you will play against a computer or another human to connect four of your game pieces in a row. The first to get four in a row wins.
 
 ## Getting Started

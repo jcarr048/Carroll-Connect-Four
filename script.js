@@ -94,67 +94,51 @@ function startGame() {
 
 function cellDone(cell) {
   if (currentPlayer === '.player-one') {
-    cell.classList.add('taken')
     cell.classList.add('player-one')
-    if (classList.contains('taken')) {
-      alert('You cannot go there.')
-    } else {
-      if ((cell[i] = cell > 7)) {
-        cell.classList.add('taken')
-        cell.classList.add('player-one')
-        if ((cell[i] = cell < 7)) {
-          cell.classList.add('taken')
-          cell.classList.add('player-one')
-        } else {
-          alert('You cannot go there.')
-        }
-      } else {
-        alert('You cannot go there.')
-      }
-    }
     currentPlayer = '.player-two'
+    whoWon()
   } else if (currentPlayer === '.player-two') {
-    cell.classList.add('taken')
     cell.classList.add('player-two')
-    if (classList.contains('taken')) {
-      alert('You cannot go there.')
-    } else {
-      if ((cell[i] = cell > 7)) {
-        cell.classList.add('player-two')
-        if ((cell[i] = cell < 7)) {
-          cell.classList.add('player-two')
-        } else {
-          alert('You cannot go there.')
-        }
-      } else {
-        alert('You cannot go there.')
-      }
-    }
+    currentPlayer = '.player-one'
+    whoWon()
   }
-  currentPlayer = '.player-one'
 }
 
+function changePlayer() {}
+
 function whoWon() {
+  let roundOver = false
   for (let i = 0; i < winningConditions.length; i++) {
     const cellA = cells[winningConditions[i][0]]
     const cellB = cells[winningConditions[i][1]]
     const cellC = cells[winningConditions[i][2]]
     const cellD = cells[winningConditions[i][3]]
+    if (
+      cellA.classList.contains('.player-one') &&
+      cellB.classList.contains('.player-one') &&
+      cellC.classList.contains('.player-one') &&
+      cellD.classList.contains('.player-one')
+    ) {
+      roundOver = true
+      break
+    } else if (
+      cellA.classList.contains('.player-two') &&
+      cellB.classList.contains('.player-two') &&
+      cellC.classList.contains('.player-two') &&
+      cellD.classList.contains('.player-two')
+    ) {
+      roundOver = true
+      break
+    }
   }
-  if (
-    cellA.classList.contains('.player-one') &&
-    cellB.classList.contains('.player-one') &&
-    cellC.classList.contains('.player-one') &&
-    cellD.classList.contains('.player-one')
-  ) {
-    // Going to add innerHTML here
-  }
-  if (
-    cellA.classList.contains('.player-two') &&
-    cellB.classList.contains('.player-two') &&
-    cellC.classList.contains('.player-two') &&
-    cellD.classList.contains('.player-two')
-  ) {
-    // Going to add innerHTML here
+  if (roundOver === true) {
+    running = false
+  } else if (roundOver === false) {
+    running = true
   }
 }
+
+// function newGame() {
+//   currentPlayer = '.player-one'
+//   running = true
+// }

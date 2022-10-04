@@ -133,3 +133,28 @@ function cellDone(cell) {
   }
   currentPlayer = '.player-one'
 }
+
+function whoWon() {
+  for (let i = 0; i < winningConditions.length; i++) {
+    const cellA = cells[winningConditions[i][0]]
+    const cellB = cells[winningConditions[i][1]]
+    const cellC = cells[winningConditions[i][2]]
+    const cellD = cells[winningConditions[i][3]]
+  }
+  if (
+    cellA.classList.contains('.player-one') &&
+    cellB.classList.contains('.player-one') &&
+    cellC.classList.contains('.player-one') &&
+    cellD.classList.contains('.player-one')
+  ) {
+    // Going to add innerHTML here
+  }
+  if (
+    cellA.classList.contains('.player-two') &&
+    cellB.classList.contains('.player-two') &&
+    cellC.classList.contains('.player-two') &&
+    cellD.classList.contains('.player-two')
+  ) {
+    // Going to add innerHTML here
+  }
+}

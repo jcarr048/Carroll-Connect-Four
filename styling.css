@@ -10,7 +10,7 @@
     flex-wrap: wrap;
 }
 
-.gameTable div {
+.cell {
     height: 95px;
     width: 105px;
     background-color: white;

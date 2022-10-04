@@ -1,4 +1,5 @@
-const cells = document.querySelectorAll('.gameTable')
+const cells = document.querySelectorAll('.cell')
+console.log(cells)
 const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
 
@@ -73,25 +74,62 @@ const winningConditions = [
   [12, 19, 26, 33],
   [13, 20, 27, 34]
 ]
+
 let options = ['', '', '', '', '', '', '']
 
-let currentPlayer = '.player_one'
+let currentPlayer = '.player-one'
 let running = false
 
 startGame()
 
 function startGame() {
-  cells.forEach((cell) => cell.addEventListener('click', cellDone))
-  newGameBtn.addEventListener('click', newGame)
-  playerStatus.textContent = `${currentPlayer}'s turn`
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].addEventListener('click', () => {
+      const cell = cells[i]
+      cells[i].id = i
+      cellDone(cell)
+    })
+  }
 }
 
-function cellFinished() {}
-
-function cellChange() {}
-
-function otherPlayer() {}
-
-function checkWin() {}
-
-function restartGame() {}
+function cellDone(cell) {
+  if (currentPlayer === '.player-one') {
+    cell.classList.add('taken')
+    cell.classList.add('player-one')
+    if (classList.contains('taken')) {
+      alert('You cannot go there.')
+    } else {
+      if ((cell[i] = cell > 7)) {
+        cell.classList.add('taken')
+        cell.classList.add('player-one')
+        if ((cell[i] = cell < 7)) {
+          cell.classList.add('taken')
+          cell.classList.add('player-one')
+        } else {
+          alert('You cannot go there.')
+        }
+      } else {
+        alert('You cannot go there.')
+      }
+    }
+    currentPlayer = '.player-two'
+  } else if (currentPlayer === '.player-two') {
+    cell.classList.add('taken')
+    cell.classList.add('player-two')
+    if (classList.contains('taken')) {
+      alert('You cannot go there.')
+    } else {
+      if ((cell[i] = cell > 7)) {
+        cell.classList.add('player-two')
+        if ((cell[i] = cell < 7)) {
+          cell.classList.add('player-two')
+        } else {
+          alert('You cannot go there.')
+        }
+      } else {
+        alert('You cannot go there.')
+      }
+    }
+  }
+  currentPlayer = '.player-one'
+}

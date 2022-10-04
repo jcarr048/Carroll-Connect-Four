@@ -1,6 +1,4 @@
 .gameTable {
-    display: grid;
-    grid-template-columns: repeat(7, auto);
     background-color: blue;
     width: 900px;
     height: 800px;
@@ -8,6 +6,8 @@
     border: 8px solid navy;
     border-bottom: 8px solid yellow;
     justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .gameTable div {
@@ -27,7 +27,7 @@
 }
 
 .player-two {
-    background-color: yellow;
+    background-color: black;
     border-radius: 70px;
 }
 

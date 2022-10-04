@@ -2,7 +2,7 @@ const cells = document.querySelectorAll('.gameTable')
 const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
 
-const winningOptions = [
+const winningConditions = [
   [0, 1, 2, 3],
   [41, 40, 39, 38],
   [7, 8, 9, 10],
@@ -73,48 +73,25 @@ const winningOptions = [
   [12, 19, 26, 33],
   [13, 20, 27, 34]
 ]
+let options = ['', '', '', '', '', '', '']
 
-let options = [
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  ''
-]
+let currentPlayer = '.player_one'
+let running = false
+
+startGame()
+
+function startGame() {
+  cells.forEach((cell) => cell.addEventListener('click', cellDone))
+  newGameBtn.addEventListener('click', newGame)
+  playerStatus.textContent = `${currentPlayer}'s turn`
+}
+
+function cellFinished() {}
+
+function cellChange() {}
+
+function otherPlayer() {}
+
+function checkWin() {}
+
+function restartGame() {}

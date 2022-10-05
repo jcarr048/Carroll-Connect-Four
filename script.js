@@ -4,6 +4,11 @@ const newGameBtn = document.querySelector('#newGameBtn')
 const scoreKeeperRed = document.querySelector('#redWins')
 const scoreKeeperBlack = document.querySelector('#blackWins')
 
+// const modal = document.querySelector('.modal')
+// const closeButton = document.querySelector('.modal-close')
+// const modal2 = document.querySelector('.modal2')
+// const closeButton2 = document.querySelector('.modal-close2')
+
 let redWins = 0
 let blackWins = 0
 
@@ -132,9 +137,9 @@ function whoWon() {
       cellC.classList.contains('player-one') &&
       cellD.classList.contains('player-one')
     ) {
-      alert('Player 1 wins! Press New Game')
       playerStatus.innerHTML = `Game over! Player 1 Wins!`
       redWins++
+      // toggleModal()
       scoreKeeperRed.innerHTML = redWins
       break
     } else if (
@@ -143,9 +148,9 @@ function whoWon() {
       cellC.classList.contains('player-two') &&
       cellD.classList.contains('player-two')
     ) {
-      alert('Player 2 wins! Press New Game')
       playerStatus.innerHTML = `Game over! Player 2 Wins!`
       blackWins++
+      // toggleModal2()
       scoreKeeperBlack.innerHTML = blackWins
       break
     }
@@ -153,3 +158,14 @@ function whoWon() {
 }
 
 newGameBtn.addEventListener('click', startGame)
+
+// closeButton.addEventListener('click', toggleModal)
+// closeButton2.addEventListener('click', toggleModal2)
+
+// function toggleModal() {
+//   modal.classList.toggle('modal')
+// }
+
+// function toggleModal2() {
+//   modal2.classList.toggle('modal2')
+// }

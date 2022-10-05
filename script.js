@@ -74,8 +74,7 @@ const winningConditions = [
   [13, 20, 27, 34]
 ]
 
-let currentPlayer = '.player-one'
-let running = false
+let currentPlayer = 'Player 1'
 
 startGame()
 
@@ -94,13 +93,15 @@ function startGame() {
 }
 
 function cellDone(cell) {
-  if (currentPlayer === '.player-one') {
+  if (currentPlayer === 'Player 1') {
+    playerStatus.innerHTML = `${currentPlayer}'s turn`
     cell.classList.add('player-one')
-    currentPlayer = '.player-two'
+    currentPlayer = 'Player 2'
     whoWon()
-  } else if (currentPlayer === '.player-two') {
+  } else if (currentPlayer === 'Player 2') {
+    playerStatus.innerHTML = `${currentPlayer}'s turn`
     cell.classList.add('player-two')
-    currentPlayer = '.player-one'
+    currentPlayer = 'Player 1'
     whoWon()
   }
 }
@@ -117,7 +118,7 @@ function whoWon() {
       cellC.classList.contains('player-one') &&
       cellD.classList.contains('player-one')
     ) {
-      console.log('.player-one wins')
+      alert('Player 1 wins! Press New Game')
       break
     } else if (
       cellA.classList.contains('player-two') &&
@@ -125,14 +126,14 @@ function whoWon() {
       cellC.classList.contains('player-two') &&
       cellD.classList.contains('player-two')
     ) {
-      console.log('.player-two wins')
+      alert('Player 2 wins! Press New Game')
       running = false
       break
     }
   }
 }
 
-// function newGame() {
-//   currentPlayer = '.player-one'
-//   running = true
-// }
+function newGame() {
+  newGameBtn.addEventListener('click', startGame())
+  currentPlayer = 'Player 1'
+}

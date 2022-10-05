@@ -1,13 +1,51 @@
-if (cell contains taken) {
-  alert you can't go there
-  } else {
-    if (cell 7 after contains taken) {
-    place tile
-      if (cell id is one of the last 7) {
-      place tile
-      } else {
-      can't go here
-      }
-    } else {
-    alert can't go here
-    }
+// if (cell contains taken) {
+//   alert you can't go there
+//   } else {
+//     if (cell 7 after contains taken) {
+//     place tile
+//       if (cell id is one of the last 7) {
+//       place tile
+//       } else {
+//       can't go here
+//       }
+//     } else {
+//     alert can't go here
+//     }
+// }
+
+// console.log(parseInt(cell.id) + 7)
+// cell.classList.add('taken')
+
+// cell.classList.add('player-one')
+//  if (cell.classList.contains('taken')) {
+//     alert('You cannot go there.')
+//   } else {
+//     if (cell.id > 7) {
+//       cell.classList.add('taken')
+//       cell.classList.add('player-one')
+//       if (cell.id < 7) {
+//         cell.classList.add('taken')
+//         cell.classList.add('player-one')
+//       } else {
+//         alert('You cannot go there.')
+//       }
+//     } else {
+//       alert('You cannot go there.')
+//     }
+//   }
+// cell.classList.add('taken')
+// if (cell.classList.contains('taken')) {
+//     alert('You cannot go there.')
+//   } else {
+//     if (cell.id > 7) {
+//       cell.classList.add('player-two')
+//       if (cell.id < 7) {
+//         cell.classList.add('player-two')
+//       } else {
+//         alert('You cannot go there.')
+//       }
+//     } else {
+//       alert('You cannot go there.')
+//     }
+//   }
+// }

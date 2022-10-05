@@ -1,5 +1,4 @@
 const cells = document.querySelectorAll('.cell')
-console.log(cells)
 const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
 
@@ -75,8 +74,6 @@ const winningConditions = [
   [13, 20, 27, 34]
 ]
 
-let options = ['', '', '', '', '', '', '']
-
 let currentPlayer = '.player-one'
 let running = false
 
@@ -104,10 +101,7 @@ function cellDone(cell) {
   }
 }
 
-function changePlayer() {}
-
 function whoWon() {
-  let roundOver = false
   for (let i = 0; i < winningConditions.length; i++) {
     const cellA = cells[winningConditions[i][0]]
     const cellB = cells[winningConditions[i][1]]
@@ -119,7 +113,7 @@ function whoWon() {
       cellC.classList.contains('.player-one') &&
       cellD.classList.contains('.player-one')
     ) {
-      roundOver = true
+      running = false
       break
     } else if (
       cellA.classList.contains('.player-two') &&
@@ -127,14 +121,9 @@ function whoWon() {
       cellC.classList.contains('.player-two') &&
       cellD.classList.contains('.player-two')
     ) {
-      roundOver = true
+      running = false
       break
     }
-  }
-  if (roundOver === true) {
-    running = false
-  } else if (roundOver === false) {
-    running = true
   }
 }
 

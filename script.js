@@ -1,6 +1,11 @@
 const cells = document.querySelectorAll('.cell')
 const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
+const scoreKeeperRed = document.querySelector('#redWins')
+const scoreKeeperBlack = document.querySelector('#blackWins')
+
+let redWins = 0
+let blackWins = 0
 
 const winningConditions = [
   [0, 1, 2, 3],
@@ -79,6 +84,7 @@ let currentPlayer = 'Player 1'
 startGame()
 
 function startGame() {
+  playerStatus.innerHTML = `${currentPlayer} you're up first!`
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener(
       'click',
@@ -94,14 +100,14 @@ function startGame() {
 
 function cellDone(cell) {
   if (currentPlayer === 'Player 1') {
-    playerStatus.innerHTML = `${currentPlayer}'s turn`
     cell.classList.add('player-one')
     currentPlayer = 'Player 2'
+    playerStatus.innerHTML = `${currentPlayer}'s turn`
     whoWon()
   } else if (currentPlayer === 'Player 2') {
-    playerStatus.innerHTML = `${currentPlayer}'s turn`
     cell.classList.add('player-two')
     currentPlayer = 'Player 1'
+    playerStatus.innerHTML = `${currentPlayer}'s turn`
     whoWon()
   }
 }
@@ -119,6 +125,7 @@ function whoWon() {
       cellD.classList.contains('player-one')
     ) {
       alert('Player 1 wins! Press New Game')
+      playerStatus.innerHTML = `Game over! Player 1 Wins!`
       break
     } else if (
       cellA.classList.contains('player-two') &&
@@ -127,6 +134,7 @@ function whoWon() {
       cellD.classList.contains('player-two')
     ) {
       alert('Player 2 wins! Press New Game')
+      playerStatus.innerHTML = `Game over! Player 2 Wins!`
       running = false
       break
     }

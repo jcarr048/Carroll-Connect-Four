@@ -1,5 +1,6 @@
 body {
     background-image: url(https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29vZCUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+    font-family: 'Silkscreen', cursive;
 }
 
 h1 {
@@ -11,8 +12,8 @@ h1 {
 .gameTable {
     background-color: blue;
     opacity: .9;
-    width: 900px;
-    height: 800px;
+    width: 800px;
+    height: 700px;
     margin: auto;
     border: 8px solid navy;
     border-bottom: 8px solid yellow;
@@ -22,8 +23,8 @@ h1 {
 }
 
 .cell {
-    height: 95px;
-    width: 105px;
+    height: 75px;
+    width: 85px;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 0 2px;
@@ -34,12 +35,12 @@ h1 {
 
 .player-one {
     background-color: red;
-    border-radius: 70px;
+    border-radius: 50px;
 }
 
 .player-two {
     background-color: black;
-    border-radius: 70px;
+    border-radius: 50px;
 }
 h3 {
     font-size: 20px;
@@ -53,6 +54,7 @@ h4 {
     text-align: center;
     text-shadow: 1px 1px black;
     font-size: 18px;
+    top: 95vh;
 }
 
 #redWins {
@@ -62,4 +64,18 @@ h4 {
 #blackWins {
     color: white;
     text-shadow: 2px 2px black;
+}
+
+
+#newGameBtn {
+    font-family: 'Silkscreen', cursive;
+    text-align: center;
+    position: absolute;
+    left: 5%;
+    top: 50vh;
+    background-color: blue;
+    opacity: .9;
+    color: yellow;
+    cursor: pointer;
+    height: 45px;
 }

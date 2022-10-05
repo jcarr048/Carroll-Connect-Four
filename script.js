@@ -81,11 +81,15 @@ startGame()
 
 function startGame() {
   for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener('click', () => {
-      const cell = cells[i]
-      cells[i].id = i
-      cellDone(cell)
-    })
+    cells[i].addEventListener(
+      'click',
+      () => {
+        const cell = cells[i]
+        cells[i].id = i
+        cellDone(cell)
+      },
+      { once: true }
+    )
   }
 }
 
@@ -108,19 +112,20 @@ function whoWon() {
     const cellC = cells[winningConditions[i][2]]
     const cellD = cells[winningConditions[i][3]]
     if (
-      cellA.classList.contains('.player-one') &&
-      cellB.classList.contains('.player-one') &&
-      cellC.classList.contains('.player-one') &&
-      cellD.classList.contains('.player-one')
+      cellA.classList.contains('player-one') &&
+      cellB.classList.contains('player-one') &&
+      cellC.classList.contains('player-one') &&
+      cellD.classList.contains('player-one')
     ) {
-      running = false
+      console.log('.player-one wins')
       break
     } else if (
-      cellA.classList.contains('.player-two') &&
-      cellB.classList.contains('.player-two') &&
-      cellC.classList.contains('.player-two') &&
-      cellD.classList.contains('.player-two')
+      cellA.classList.contains('player-two') &&
+      cellB.classList.contains('player-two') &&
+      cellC.classList.contains('player-two') &&
+      cellD.classList.contains('player-two')
     ) {
+      console.log('.player-two wins')
       running = false
       break
     }

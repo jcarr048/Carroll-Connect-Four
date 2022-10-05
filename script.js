@@ -79,11 +79,19 @@ const winningConditions = [
   [13, 20, 27, 34]
 ]
 
-let currentPlayer = 'Player 1'
+let currentPlayer
 
 startGame()
 
 function startGame() {
+  cells.forEach((el) => {
+    if (el.classList.contains('player-one')) {
+      el.classList.remove('player-one')
+    } else if (el.classList.contains('player-two')) {
+      el.classList.remove('player-two')
+    }
+  })
+  currentPlayer = 'Player 1'
   playerStatus.innerHTML = `${currentPlayer} you're up first!`
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener(
@@ -126,6 +134,8 @@ function whoWon() {
     ) {
       alert('Player 1 wins! Press New Game')
       playerStatus.innerHTML = `Game over! Player 1 Wins!`
+      redWins++
+      scoreKeeperRed.innerHTML = redWins
       break
     } else if (
       cellA.classList.contains('player-two') &&
@@ -135,13 +145,11 @@ function whoWon() {
     ) {
       alert('Player 2 wins! Press New Game')
       playerStatus.innerHTML = `Game over! Player 2 Wins!`
-      running = false
+      blackWins++
+      scoreKeeperBlack.innerHTML = blackWins
       break
     }
   }
 }
 
-function newGame() {
-  newGameBtn.addEventListener('click', startGame())
-  currentPlayer = 'Player 1'
-}
+newGameBtn.addEventListener('click', startGame)

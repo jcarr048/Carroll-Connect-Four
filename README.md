@@ -7,6 +7,7 @@
 ## **_Description_**
 
 [Trello Board](https://trello.com/b/JqhpRwgD/jeffs-project-board)
+[Surge Upload](nutritious-expert.surge.sh)
 
 In this game, you will play against another human to connect four of your game pieces in a row. The first to get four in a row wins.
 
@@ -35,3 +36,5 @@ In this game, you will play against another human to connect four of your game p
 [Used this site for multiple purposes](https://www.w3schools.com/)
 
 [Used this for positioning elements](https://www.tutorialspoint.com/css/css_positioning.htm)
+
+![Gif used for Navigation Page](https://upload.wikimedia.org/wikipedia/commons/a/ad/Connect_Four.gif")

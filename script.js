@@ -3,11 +3,7 @@ const playerStatus = document.querySelector('#playerStatus')
 const newGameBtn = document.querySelector('#newGameBtn')
 const scoreKeeperRed = document.querySelector('#redWins')
 const scoreKeeperBlack = document.querySelector('#blackWins')
-
-// const modal = document.querySelector('.modal')
-// const closeButton = document.querySelector('.modal-close')
-// const modal2 = document.querySelector('.modal2')
-// const closeButton2 = document.querySelector('.modal-close2')
+let winner
 
 let redWins = 0
 let blackWins = 0
@@ -90,15 +86,11 @@ startGame()
 startGamePart2()
 
 function startGame() {
+  winner = false
   cells.forEach((el) => {
     el.removeAttribute('id')
     el.removeAttribute('class')
     el.setAttribute('class', 'cell')
-    // if (el.classList.contains('player-one')) {
-    //   el.classList.remove('player-one')
-    // } else if (el.classList.contains('player-two')) {
-    //   el.classList.remove('player-two')
-    // }
   })
   currentPlayer = 'Player 1'
   playerStatus.innerHTML = `${currentPlayer} you're up first!`
@@ -106,15 +98,13 @@ function startGame() {
 
 function startGamePart2() {
   for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener(
-      'click',
-      () => {
+    cells[i].addEventListener('click', () => {
+      if (!winner) {
         const cell = cells[i]
         cells[i].id = i
         cellDone(cell)
-      },
-      { once: true }
-    )
+      }
+    })
   }
 }
 
@@ -130,15 +120,16 @@ function cellDone(cell) {
   if (currentPlayer === 'Player 1') {
     if (!cell.classList.contains('player-two')) {
       cell.classList.add('player-one')
+      console.log(cell)
+      whoWon()
     }
     playerStatus.innerHTML = `${currentPlayer}'s turn`
-    whoWon()
   } else {
     if (!cell.classList.contains('player-one')) {
       cell.classList.add('player-two')
+      whoWon()
     }
     playerStatus.innerHTML = `${currentPlayer}'s turn`
-    whoWon()
   }
 }
 
@@ -155,6 +146,7 @@ function whoWon() {
       cellD.classList.contains('player-one')
     ) {
       playerStatus.innerHTML = `Game over! Player 1 Wins!`
+      winner = true
       redWins++
       scoreKeeperRed.innerHTML = redWins
     } else if (
@@ -164,22 +156,13 @@ function whoWon() {
       cellD.classList.contains('player-two')
     ) {
       playerStatus.innerHTML = `Game over! Player 2 Wins!`
+      winner = true
       blackWins++
       scoreKeeperBlack.innerHTML = blackWins
+    } else {
+      changePlayer()
     }
   }
-  changePlayer()
 }
 
 newGameBtn.addEventListener('click', startGame)
-
-// closeButton.addEventListener('click', toggleModal)
-// closeButton2.addEventListener('click', toggleModal2)
-
-// function toggleModal() {
-//   modal.classList.toggle('modal')
-// }
-
-// function toggleModal2() {
-//   modal2.classList.toggle('modal2')
-// }

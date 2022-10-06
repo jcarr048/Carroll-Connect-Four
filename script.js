@@ -87,6 +87,7 @@ const winningConditions = [
 let currentPlayer
 
 startGame()
+startGamePart2()
 
 function startGame() {
   cells.forEach((el) => {
@@ -101,6 +102,9 @@ function startGame() {
   })
   currentPlayer = 'Player 1'
   playerStatus.innerHTML = `${currentPlayer} you're up first!`
+}
+
+function startGamePart2() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener(
       'click',
@@ -113,6 +117,7 @@ function startGame() {
     )
   }
 }
+
 function changePlayer() {
   if (currentPlayer === 'Player 1') {
     currentPlayer = 'Player 2'

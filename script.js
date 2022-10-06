@@ -90,11 +90,14 @@ startGame()
 
 function startGame() {
   cells.forEach((el) => {
-    if (el.classList.contains('player-one')) {
-      el.classList.remove('player-one')
-    } else if (el.classList.contains('player-two')) {
-      el.classList.remove('player-two')
-    }
+    el.removeAttribute('id')
+    el.removeAttribute('class')
+    el.setAttribute('class', 'cell')
+    // if (el.classList.contains('player-one')) {
+    //   el.classList.remove('player-one')
+    // } else if (el.classList.contains('player-two')) {
+    //   el.classList.remove('player-two')
+    // }
   })
   currentPlayer = 'Player 1'
   playerStatus.innerHTML = `${currentPlayer} you're up first!`
@@ -110,16 +113,25 @@ function startGame() {
     )
   }
 }
+function changePlayer() {
+  if (currentPlayer === 'Player 1') {
+    currentPlayer = 'Player 2'
+  } else {
+    currentPlayer = 'Player 1'
+  }
+}
 
 function cellDone(cell) {
   if (currentPlayer === 'Player 1') {
-    cell.classList.add('player-one')
-    currentPlayer = 'Player 2'
+    if (!cell.classList.contains('player-two')) {
+      cell.classList.add('player-one')
+    }
     playerStatus.innerHTML = `${currentPlayer}'s turn`
     whoWon()
-  } else if (currentPlayer === 'Player 2') {
-    cell.classList.add('player-two')
-    currentPlayer = 'Player 1'
+  } else {
+    if (!cell.classList.contains('player-one')) {
+      cell.classList.add('player-two')
+    }
     playerStatus.innerHTML = `${currentPlayer}'s turn`
     whoWon()
   }
@@ -139,9 +151,7 @@ function whoWon() {
     ) {
       playerStatus.innerHTML = `Game over! Player 1 Wins!`
       redWins++
-      // toggleModal()
       scoreKeeperRed.innerHTML = redWins
-      break
     } else if (
       cellA.classList.contains('player-two') &&
       cellB.classList.contains('player-two') &&
@@ -150,11 +160,10 @@ function whoWon() {
     ) {
       playerStatus.innerHTML = `Game over! Player 2 Wins!`
       blackWins++
-      // toggleModal2()
       scoreKeeperBlack.innerHTML = blackWins
-      break
     }
   }
+  changePlayer()
 }
 
 newGameBtn.addEventListener('click', startGame)

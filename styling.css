@@ -1,4 +1,4 @@
-body {
+.first_body {
     background-image: url(https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29vZCUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
     font-family: 'Silkscreen', cursive;
 }
@@ -169,4 +169,9 @@ h4 {
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.second_body {
+    background-image: url(https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29vZCUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+    font-family: 'Silkscreen', cursive;
 }

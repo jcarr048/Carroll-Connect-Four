@@ -31,3 +31,7 @@ In this game, you will play against another human to connect four of your game p
 [This video helped me with Modals](https://www.youtube.com/watch?v=KX0NR5HtQ1Q)
 
 ![Background Image used](https://images.unsplash.com/photo-1506968430777-bf7784a87f23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29vZCUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80)
+
+[Used this site for multiple purposes](https://www.w3schools.com/)
+
+[Used this for positioning elements](https://www.tutorialspoint.com/css/css_positioning.htm)

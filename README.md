@@ -7,7 +7,7 @@
 ## **_Description_**
 
 [Trello Board](https://trello.com/b/JqhpRwgD/jeffs-project-board)
-[Surge Upload](nutritious-expert.surge.sh)
+[Deployed App](https://carroll-connect-four-production.up.railway.app/)
 
 In this game, you will play against another human to connect four of your game pieces in a row. The first to get four in a row wins.
 
